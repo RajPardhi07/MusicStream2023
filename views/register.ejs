@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: gilroy;
+
+		}
+		html, body{
+			width: 100%;
+			height: 100%;
+			background-color: black;
+		}
+
+		.card{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			box-shadow: 13px 13px 0px 0px #1ED760;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			width: 28vw;
+			border-radius: 9px;
+			height: 70vh;
+			background-color:#222224;
+			
+		}
+
+		.card input{
+			margin-left: 3vw;
+			border: none;
+			margin-top: 1vw;
+			outline-color:#1ED760;
+			padding-left:18px;
+			border-radius: 50px;
+			width: 20vw;
+			height: 6.5vh;
+		}
+
+		.card a{
+			border: none;
+			outline-color:#1ED760;
+			padding-left:8.6vw;
+			padding-top: 12px;
+			position: absolute;
+			left:3vw;
+			text-decoration: none;
+			font-size: 19px;
+			bottom: 1.3vw;
+			background-color: white;
+			border-radius: 50px;
+			width: 20vw;
+			color: black;
+			height: 6.2vh;
+		}
+		.card img{
+			padding-top: 20px;
+			height: 75px;
+			margin-bottom: 2vw;
+			object-fit: cover;
+		}
+
+		.card h4{
+			color: white;
+			margin-bottom: 1vw;
+
+			position: relative;
+			font-size: 19px;
+			font-weight: 500;
+		}
+
+		.card h4::after{
+
+			position: absolute;
+			content: "";
+			width: 100%;
+			height: 2px;
+			background-color:#1ED760;
+			bottom: -4px;
+			left: 0;
+		}
+		.submit{
+			position: absolute;
+			bottom: 7.3vw;
+			background-color: #1ED760;
+			color: white;
+			padding-left:18px;
+			border-radius: 50px;
+			width: 20vw;
+			border: none;
+			font-size: 19px;
+			left: 3vw;
+			height: 6.5vh;
+
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div class="card">
+
+		<img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png" alt="">
+
+		<h4>SIGN UP</h4>
+		
+		<form action="/register" method="post">
+
+			<input id="username" type="text" name="username" placeholder="Username" required>
+			<input id="email" type="email" name="email" placeholder="E-Mail" required>
+			<input id="password" type="password" name="password" placeholder="Password" required>
+			<button type="submit" class="submit">SIGN UP</button>
+
+			<a href="/login">LOG IN</a>
+
+		</form>
+
+
+
+
+
+
+
+	</div>
+
+</body>
+
+</html>
