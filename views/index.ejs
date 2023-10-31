@@ -26,7 +26,7 @@
     }
 
     #main {
-     
+
 
       position: relative;
       /* overflow: hidden; */
@@ -82,13 +82,14 @@
       transition: all ease 0.4s;
     }
 
-    .over-top a:hover{
+    .over-top a:hover {
       background-color: #5f5656;
     }
 
-    .over-top button:hover{
+    .over-top button:hover {
       background-color: #5f5656;
     }
+
     .over-top button {
       width: 90%;
       height: 60px;
@@ -106,7 +107,7 @@
 
     }
 
-    .over-bottom{
+    .over-bottom {
       width: 100%;
       border-radius: 10px;
       overflow: hidden;
@@ -116,7 +117,7 @@
 
     }
 
-    .over-bottom button {
+    .over-bottom a {
       width: 90%;
       height: 60px;
       border-radius: 10px;
@@ -124,6 +125,7 @@
       background-color: transparent;
       text-align: start;
       display: flex;
+      text-decoration: none;
       margin-top: 10px;
       padding: 0 10px;
       align-items: center;
@@ -132,19 +134,65 @@
       transition: all ease 0.4s;
 
 
-    } 
-    .over-bottom button:hover{
+    }
+
+    .over-bottom a:hover {
       background-color: #5f5656;
     }
 
 
-    .over-bottom i{
+    .over-bottom i {
       /* background-color: red; */
-      background: linear-gradient( 120deg, #5A2FEF,#d3deea);
+      background: linear-gradient(120deg, #5A2FEF, #d3deea);
       padding: 11px 11px;
       border-radius: 4px;
     }
 
+    .nav-right {
+      width: 77%;
+      height: 70px;
+      background-color: rgba(0, 0, 0, 0.351);
+      position: fixed;
+      display: flex;
+      align-items: center;
+
+      justify-content: space-between;
+
+      z-index: 9999999;
+    }
+    .ll{
+      width: 100px;
+
+    }
+
+    .ll i{
+    margin-left: 5px;
+      font-size: 25px;
+      border-radius: 50px;
+      padding: 7px 7px;
+      background-color: black;
+    }
+
+    .rr {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-right img {
+      height: 45px;
+      width: 45px;
+      border-radius: 50px;
+      object-fit: cover;
+
+
+    }
+
+    .nav-right h4 {
+      color: white;
+      font-size: 20px;
+
+    }
 
     .right {
       width: 77%;
@@ -164,9 +212,15 @@
 
     .musics {
       display: grid;
+      margin-top: 5vw;
+
       width: 100%;
-      /* margin-top: 5vw; */
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    }
+
+    .right::-webkit-scrollbar {
+      display: none;
 
     }
 
@@ -230,6 +284,11 @@
       margin-top: 2vw;
     }
 
+    .text a {
+      text-decoration: none;
+      font-size: 1.5vw;
+    }
+
     .right audio {
       position: fixed;
       width: 40vw;
@@ -245,98 +304,160 @@
       background-color: #1FDF64;
       color: #a0276e;
     }
+
+    .over-logout {
+      width: 80%;
+      /* background-color: red; */
+      position: absolute;
+      top: 89%;
+      left: 10px;
+    }
+
+    .over-logout a {
+      width: 90%;
+      height: 60px;
+      border-radius: 10px;
+      border: none;
+      background-color: transparent;
+      text-align: start;
+      display: flex;
+      text-decoration: none;
+      margin-top: 10px;
+      padding: 0 10px;
+      align-items: center;
+      font-size: 1.5vw;
+      gap: 10px;
+      transition: all ease 0.4s;
+
+
+    }
+
+    .over-logout a:hover {
+      background-color: #5f5656;
+    }
+
+
+    .over-logout i {
+      /* background-color: red; */
+      background: linear-gradient(120deg, #5A2FEF, #d3deea);
+      padding: 10px 10px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 
 <body>
 
-
-
-
   <div id="main">
 
     <div id="center">
+      <div class="left">
 
-      
-          <div class="left">
-      
-            <div class="over-top">
-              <button>
-                <i class="ri-home-5-fill"></i>
-                <p>Home</p>
-              </button>
-              <a href="/search">
-                <i class="ri-search-line"></i>
-                <p>Search</p>
-              </a>
-      
-            </div>
+        <div class="over-top">
+          <button>
+            <i class="ri-home-5-fill"></i>
+            <p>Home</p>
+          </button>
+          <a href="/search">
+            <i class="ri-search-line"></i>
+            <p>Search</p>
+          </a>
 
-            <div class="over-bottom">
+        </div>
+
+        <div class="over-bottom">
+
+          <a href="/likedMusic">
+            <i class="ri-heart-fill"></i>
+            <p>Liked Songs</p>
+
+          </a>
+        </div>
+
+
+        <div class="over-logout">
+          <a href="/logout">
+            <i class="ri-logout-circle-line"></i>
+            <p>Logout</p>
+          </a>
+        </div>
+
+      </div>
 
 
 
-              <button>
-                <i class="ri-heart-fill"></i>
-                <p>Liked Songs</p>
-              </button>
-            </div>
-      
+
+      <div class="right">
+        <div class="nav-right">
+          <div class="ll">
+            <i class="ri-arrow-left-s-line"></i>
+            <i class="ri-arrow-right-s-line"></i>
           </div>
-      
-          <div class="right">
-      
-      
-      
-            <div class="musics">
-      
-      
-              <% currentUser.playlist[0].songs.forEach(song => { %>
-      
-                <div class="card" onclick="songcardClicked('<%= song.fileName %>')">
-                  <img src="/poster/<%= song.poster %>" alt="">
-      
-                  <div class="text">
-                    <h5>
-                      <%= song.title %>
-                    </h5>
-                    <p>
-                      <%= song.artist %>
-      
-                    </p>
-                    <!-- <p>
+
+          <div class="rr">
+
+            <h4>
+              <%= currentUser.username %>
+            </h4>
+            <img src="../images/default.png" alt="">
+          </div>
+        </div>
+
+
+
+        <div class="musics">
+
+
+          <% currentUser.playlist[0].songs.forEach(song=> { %>
+
+            <div class="card" onclick="songcardClicked('<%= song.fileName %>')">
+              <img src="/poster/<%= song.poster %>" alt="">
+
+              <div class="text">
+                <h5>
+                  <%= song.title %>
+                </h5>
+                <p>
+                  <%= song.artist %>
+
+                </p>
+                <!-- <p>
                         <%= song.album %>
                       </p> -->
-      
-                    <i class="ri-heart-line"></i>
-                  </div>
-      
-                  <div class="playButton">
-                    <i class="ri-play-circle-fill"></i>
-      
-                  </div>
-                </div>
-      
-                <% }) %>
-      
+
+                <a class="like" href="/likeMusic/<%= song._id %>">
+
+                  <%= song.likes.indexOf(currentUser.id)===-1 ? "🤍" : "💚" %>
+
+                </a>
+              </div>
+
+              <div class="playButton">
+                <i class="ri-play-circle-fill"></i>
+
+              </div>
             </div>
-      
-      
-            <audio src="" controls></audio>
-          </div>
+
+            <% }) %>
+
+        </div>
+
+
+        <audio src="" controls></audio>
+      </div>
     </div>
 
 
   </div>
 
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <script>
     function songcardClicked(filename) {
       document.querySelector('audio').setAttribute('src', `/stream/${filename}`)
       document.querySelector('audio').play()
     }
+
+
 
 
   </script>

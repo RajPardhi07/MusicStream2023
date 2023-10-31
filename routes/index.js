@@ -57,7 +57,6 @@ router.get('/', isloggedIn, async function (req, res, next) {
 
   // console.log(JSON.stringify(currentUser))
   res.render('index', { currentUser });
-  // res.send(currentUser);
 });
 
 
@@ -168,7 +167,6 @@ router.get('/uploadMusic', isloggedIn, isAdmin, (req, res, next) => {
   res.render('uploadMusic')
 })
 
-
 router.get('/stream/:musicName', async (req, res, next) => {
   const currentSong = await songModel.findOne({
     fileName: req.params.musicName
@@ -185,9 +183,52 @@ router.get('/stream/:musicName', async (req, res, next) => {
   stream.pipe(res)
 })
 
+router.get('/SongName/:musicName', isloggedIn, async function (req, res, next) {
+  const currentSong = await songModel.findOne({
+    fileName: req.params.musicName,
+  })
+
+  res.json({
+    title:currentSong
+  })
+})
+
 router.get('/search', (req, res, next) => {
+
   res.render('search')
 })
+
+router.get('/likeMusic/:songid', isloggedIn, async function(req, res, next){
+const foundUser = await userModel.findOne({username: req.session.passport.user})
+if(foundUser.likes.indexOf(req.params.songid) === -1 ){
+  foundUser.likes.push(req.params.songid)
+}
+else{
+  foundUser.likes.splice(foundUser.likes.indexOf(req.params.songid),1)
+}
+await foundUser.save();
+
+const foundSong = await songModel.findOne({_id: req.params.songid })
+if(foundSong.likes.indexOf(foundUser._id)=== -1) {
+  foundSong.likes.push(foundUser._id)
+}
+else{
+  foundSong.likes.splice(foundSong.likes.indexOf(foundUser._id), 1)
+}
+await foundSong.save()
+res.redirect('back')
+})
+
+
+router.get('/likedMusic',isloggedIn, async (req, res, next) => {
+  const songData = await userModel.findOne({username: req.session.passport.user})
+  .populate("likes")
+  res.render("likedMusic", {songData});
+})
+  
+
+  
+
 
 router.post('/search', async (req, res, next) => {
 

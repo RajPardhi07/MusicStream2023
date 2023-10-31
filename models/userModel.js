@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
             ref:'playlist'
         }
     ],
-    liked:[
+    likes:[
         {
             type:mongoose.Schema.Types.ObjectId,
             ref:'song'
