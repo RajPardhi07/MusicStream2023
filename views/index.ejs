@@ -112,7 +112,8 @@
       border-radius: 10px;
       overflow: hidden;
       height: 90vh;
-      background-color: #121212;
+      /* background-color: #121212; */
+      background-color: red;
       margin-top: 10px;
 
     }
@@ -148,6 +149,56 @@
       border-radius: 4px;
     }
 
+    .left .playlist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+ background-color: green;
+
+}
+
+#playlistform {
+  display: none;
+}
+
+.newplaylist {
+  cursor: pointer;
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* justify-content: space-between; */
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.newplaylist input {
+  width: 155%;
+}
+
+.newplaylist::-webkit-scrollbar {
+  display: none;
+}
+
+.newplaylist .text2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.newplaylist .text2 a {
+  padding-right: 8px;
+}
+
+.newplaylist .text2 i,
+.newplaylist .text2 h5 a {
+  font-size: 15px;
+}
+
+
     .nav-right {
       width: 77%;
       height: 70px;
@@ -160,13 +211,14 @@
 
       z-index: 9999999;
     }
-    .ll{
+
+    .ll {
       width: 100px;
 
     }
 
-    .ll i{
-    margin-left: 5px;
+    .ll i {
+      margin-left: 5px;
       font-size: 25px;
       border-radius: 50px;
       padding: 7px 7px;
@@ -373,6 +425,42 @@
 
           </a>
         </div>
+
+
+        <a class="playlist">
+          <div class="playlist">
+            <i id="add" class="ri-play-list-line"></i>
+
+            <p>Playlist</p>
+
+          </div>
+          <i id="add" class="ri-add-line"></i>
+
+        </a>
+
+        <div class="newplaylist">
+          <form action="/createplaylist" id="playlistform" method="post">
+            <input type="text" name="playlistName" placeholder="Add Playlist">
+          </form>
+          <% currentUser.playlist.forEach(function(playlist){  %>
+
+            <div class="text2">
+              <h5>
+                <a href="PlayList/<%= playlist._id %>">
+                  <%= playlist.name %>
+                </a>
+              </h5>
+              <% if(currentUser.username === playlist.name){ %>
+
+                <% }else { %>
+                  
+                  <a href="/deleteplaylist/<%= playlist._id %>"><i class="ri-delete-bin-6-fill"></i></a>
+                 <%  } %>
+            </div>
+            
+         <% }) %>
+        </div>
+
 
 
         <div class="over-logout">

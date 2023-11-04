@@ -31,13 +31,13 @@
         }
 
         .card1 {
-            width: 40vw;
-            height: 64vh;
-            border-radius: 10px;
+            width: 41vw;
+            height: 64.5vh;
+            border-radius: 6px;
             /* box-shadow: 0 0 7px 2px white; */
             position: relative;
             background-color: #FFFFFF;
-            box-shadow: 0px 0px 13px 2px rgb(56, 54, 54);
+            /* box-shadow: 0px 0px 13px 2px rgb(56, 54, 54); */
             top: 50%;
             z-index: 99999999999999;
             left: 50%;
@@ -120,11 +120,158 @@
             background-color: transparent;
         }
 
-         
+
 
         .card1 img {
             height: 120px;
             object-fit: cover;
+        }
+
+        #nav-bar {
+            width: 41.5vw;
+            height: 65.6vh;
+            /* background-color: lightgray; */
+            padding: 14px 40px;
+            position: absolute;
+            left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+
+            overflow: hidden;
+            /* z-index: 8888; */
+
+        }
+
+        
+
+        #nav-bar h2 {
+            color: white;
+            text-decoration-line: none;
+            font-size: 16px;
+        }
+
+        #nav-bar a {
+            text-decoration: none;
+            word-spacing: 2px;
+            overflow: hidden;
+            position: absolute;
+
+        }
+
+        #nav-bar span:nth-child(1) {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, black, black);
+            transition: all ease 0.3s;
+
+            animation-name: anime1;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+
+        @keyframes anime1 {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+
+        }
+
+        #nav-bar span:nth-child(2) {
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            top: 0;
+            right: 0;
+            /* background: linear-gradient(to bottom, gray, white); */
+            background: linear-gradient(to right, black, black);
+
+            transition: all ease 0.3s;
+
+            animation-name: anime2;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-delay: 1s;
+        }
+
+
+        @keyframes anime2 {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+
+        }
+
+        #nav-bar span:nth-child(3) {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            /* background: linear-gradient(to right, gray, white); */
+            background: linear-gradient(to right, black, black);
+
+            transition: all ease 0.3s;
+
+            animation-name: anime3;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+
+        @keyframes anime3 {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+
+        }
+
+        #nav-bar span:nth-child(4) {
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            /* background: linear-gradient(to right, gray, white); */
+            background: linear-gradient(to right, black, black);
+
+            transition: all ease 0.3s;
+
+            animation-name: anime4;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-delay: 1s;
+        }
+
+
+        @keyframes anime4 {
+            0% {
+                transform: translateY(100%);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+
         }
     </style>
 </head>
@@ -132,8 +279,17 @@
 <body>
 
     <div id="main">
+        <div id="nav-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <a href="#">
 
+                
 
+            </a>
+        </div>
 
         <div class="card1">
 
@@ -157,6 +313,8 @@
                 </div>
             </form>
         </div>
+
+
     </div>
 
 </body>

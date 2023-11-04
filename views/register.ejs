@@ -16,13 +16,31 @@
 		html, body{
 			width: 100%;
 			height: 100%;
-			background-color: white;
+			/* background-color: white; */
+			background-color: black;
+
+		}
+		body{
+			display: flex;
 		}
 
+		.left{
+			width: 50%;
+			height: 100%;
+			/* background-color: red; */
+
+		}
+
+		.right{
+			width: 50%;
+			height: 100%;
+			/* background-color: rgb(255, 242, 0); */
+
+		}
 		.card{
 			position: absolute;
-			top: 50%;
-			left: 50%;
+			top: 47%;
+			left: 70%;
 			transform: translate(-50%, -50%);
 
 			box-shadow: 18px 18px 0px 0px #1ED760;
@@ -32,7 +50,9 @@
 			width: 28vw;
 			border-radius: 9px;
 			height: 70vh;
-			background-color:#222224;
+			/* background-color:#222224; */
+			/* background-color: rgb(67, 64, 64); */
+			border: 1px solid lightgray;
 			
 		}
 
@@ -103,36 +123,205 @@
 			height: 6.5vh;
 
 		}
+		#nav-bar {
+     width: 32vw;
+     height: 22vh;
+     background-color: black;
+     padding: 14px 40px;
+     position: absolute;
+     left:10%;
+     top: 30%;
+     
+     overflow: hidden;
+     z-index: 8888;
+
+ }
+ #nav-bar img{
+	height: 120px;
+	object-fit: cover;
+ }
+
+ #nav-bar h2 {
+     color: white;
+     text-decoration-line: none;
+     font-size: 16px;
+ }
+
+ #nav-bar a {
+     text-decoration: none;
+     word-spacing: 2px;
+     overflow: hidden;
+     position: absolute;
+
+ }
+
+ #nav-bar span:nth-child(1) {
+     position: absolute;
+     width: 100%;
+     height: 2px;
+     top: 0;
+     left: 0;
+     background: linear-gradient(to right,#2cd668, #1ED760);
+     transition: all ease 0.3s;
+
+     animation-name: anime1;
+     animation-duration: 2s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+ }
+
+
+ @keyframes anime1 {
+     0% {
+         transform: translateX(-100%);
+     }
+
+     100% {
+         transform: translateX(100%);
+     }
+
+ }
+
+ #nav-bar span:nth-child(2) {
+     position: absolute;
+     width: 2px;
+     height: 100%;
+     top: 0;
+     right: 0;
+     /* background: linear-gradient(to bottom, gray, white); */
+	 background: linear-gradient(to right,#2cd668, #1ED760);
+
+     transition: all ease 0.3s;
+
+     animation-name: anime2;
+     animation-duration: 2s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-delay: 1s;
+ }
+
+
+ @keyframes anime2 {
+     0% {
+         transform: translateY(-100%);
+     }
+
+     100% {
+         transform: translateY(100%);
+     }
+
+ }
+
+ #nav-bar span:nth-child(3) {
+     position: absolute;
+     width: 100%;
+     height: 2px;
+     bottom: 0;
+     left: 0;
+     /* background: linear-gradient(to right, gray, white); */
+	 background: linear-gradient(to right,#2cd668, #1ED760);
+
+     transition: all ease 0.3s;
+
+     animation-name: anime3;
+     animation-duration: 2s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+ }
+
+
+ @keyframes anime3 {
+     0% {
+         transform: translateX(100%);
+     }
+
+     100% {
+         transform: translateX(-100%);
+     }
+
+ }
+
+ #nav-bar span:nth-child(4) {
+     position: absolute;
+     width: 2px;
+     height: 100%;
+     top: 0;
+     left: 0;
+     /* background: linear-gradient(to right, gray, white); */
+	 background: linear-gradient(to right,#2cd668, #1ED760);
+
+     transition: all ease 0.3s;
+
+     animation-name: anime4;
+     animation-duration: 2s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-delay: 1s;
+ }
+
+
+ @keyframes anime4 {
+     0% {
+         transform: translateY(100%);
+     }
+
+     100% {
+         transform: translateY(-100%);
+     }
+
+ }
+
 
 	</style>
 </head>
 
 <body>
 
+	<div class="left">
+
+		<div class="box">
+			<div id="nav-bar">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<a href="#">
+	
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/1200px-Spotify_logo_with_text.svg.png" alt="">
+					<!-- <h2>MUSIC FOR <br> EVERYONE</h2> -->
+				</a>
+			</div>
+		</div>
+	</div>
+
 	<!-- <img src="https://static.vecteezy.com/system/resources/thumbnails/021/460/248/small_2x/spotify-logo-transparent-free-png.png" alt=""> -->
-	<div class="card">
 
-		<img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png" alt="">
+	<div class="right">
 
-		<h4>SIGN UP</h4>
-		
-		<form action="/register" method="post">
-
-			<input id="username" type="text" name="username" placeholder="Username" required>
-			<input id="email" type="email" name="email" placeholder="E-Mail" required>
-			<input id="password" type="password" name="password" placeholder="Password" required>
-			<button type="submit" class="submit">SIGN UP</button>
-
-			<a href="/login">LOG IN</a>
-
-		</form>
-
-
-
-
-
-
-
+		<div class="card">
+	
+			<img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png" alt="">
+	
+			<h4>SIGN UP</h4>
+			
+			<form action="/register" method="post">
+	
+				<input id="username" type="text" name="username" placeholder="Username" required>
+				<input id="email" type="email" name="email" placeholder="E-Mail" required>
+				<input id="password" type="password" name="password" placeholder="Password" required>
+				<button type="submit" class="submit">SIGN UP</button>
+	
+				<a href="/login">LOG IN</a>
+	
+			</form>
+	
+	
+	
+	
+	
+	
+	
+		</div>
 	</div>
 
 </body>
