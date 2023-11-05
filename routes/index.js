@@ -78,7 +78,7 @@ router.post('/register', async (req, res, next) => {
 
         const songs = await songModel.find()
         const defaultplaylist = await playlistModel.create({
-          name: req.body.username,
+          username: req.body.username,
           owner: req.user._id,
           songs: songs.map(song => song._id )
         })
@@ -226,6 +226,7 @@ router.get('/likedMusic',isloggedIn, async (req, res, next) => {
   res.render("likedMusic", {songData});
 })
   
+
 router.post("/createplaylist", isloggedIn, async function(req, res, next){
   const defaultplaylist = await playlistModel.create({
     name:req.body.playlistName,
@@ -243,17 +244,7 @@ router.post("/createplaylist", isloggedIn, async function(req, res, next){
   res.redirect('/')
 })
 
-router.get('/deleteplaylist/:playlistid', isloggedIn, async function (req, res, next) {
-  const foundUser = await userModel.findOne({ username: req.session.passport.user })
-  console.log(foundUser)
-  foundUser.playlist.splice(foundUser.playlist.indexOf(req.params.playlistid), 1);
 
-  await foundUser.save()
-
-  const playlist = await playlistModel.findOneAndDelete({ _id: req.params.playlistid })
-  console.log(foundUser);
-  res.redirect("/");
-})
 
 router.get('/AddPlayList/:playlistid/:songid', isloggedIn, async function(req, res, next){
   const foundPlayList = await playlistModel.findOne({_id: req.params.playlistid})
@@ -263,7 +254,15 @@ router.get('/AddPlayList/:playlistid/:songid', isloggedIn, async function(req, r
 
 })
 
-  
+ router.get('/PlayList/:playlistid', isloggedIn, async function(req, res, next){
+
+  const userdata = req.user
+  const foundPlayList = await playlistModel.findOne({_id: req.params.playlistid})
+  .populate("songs")
+  res.render("playList", {foundPlayList, userdata})
+ }) 
+
+ 
 
 
 router.post('/search', async (req, res, next) => {

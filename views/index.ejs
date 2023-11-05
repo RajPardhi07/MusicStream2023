@@ -111,9 +111,9 @@
       width: 100%;
       border-radius: 10px;
       overflow: hidden;
-      height: 90vh;
+      height: 10vh;
       /* background-color: #121212; */
-      background-color: red;
+      /* background-color: red; */
       margin-top: 10px;
 
     }
@@ -150,53 +150,119 @@
     }
 
     .left .playlist {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
- background-color: green;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      padding-top: -4px;
+      width: 11vw;
+      height: 5.5vh;
+      border-radius: 50px;
+      background-color: #2A2A2A;
 
-}
+      padding-left: 2vw;
 
-#playlistform {
-  display: none;
-}
+      margin-top: 2vw;
+    }
 
-.newplaylist {
-  cursor: pointer;
-  width: 100%;
-  height: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  /* justify-content: space-between; */
-  padding: 16px;
-  overflow-y: auto;
-}
+    .playlist p {
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+    }
 
-.newplaylist input {
-  width: 155%;
-}
+    .playlist i {
+      font-size: 19px;
+      cursor: pointer;
+    }
 
-.newplaylist::-webkit-scrollbar {
-  display: none;
-}
 
-.newplaylist .text2 {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-.newplaylist .text2 a {
-  padding-right: 8px;
-}
+    .newplaylist {
+      cursor: pointer;
+      width: 100%;
+      height: 45%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      /* justify-content: space-between; */
+      padding: 16px;
+      margin-top: 0.7vw;
+      overflow-y: auto;
+      /* border: 1px solid white; */
+      border-radius: 10px;
 
-.newplaylist .text2 i,
-.newplaylist .text2 h5 a {
-  font-size: 15px;
-}
+
+      opacity: 0;
+      background-color:#282828;
+    }
+
+    .newplaylist input {
+      width: 130%;
+      height: 6vh;
+      border-radius: 50px;
+      padding-left: 10px;
+      background-color: transparent;
+      border: 1px solid white;
+
+
+    }
+
+    #submit-form {
+      position: absolute;
+      left: 81%;
+      font-size: 18px;
+      padding: 10px 10px;
+      /* background-color: #1FDF64; */
+      border-radius: 50px;
+      border: 1px solid white;
+
+      top: 46%;
+    }
+
+    #submit-form:hover {
+      background: linear-gradient(120deg, #5A2FEF, #d3deea);
+
+    }
+
+    .newplaylist::-webkit-scrollbar {
+      display: none;
+    }
+
+    .newplaylist .text2 {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .newplaylist .text2 h5 {
+      padding-right: 8px;
+      /* background-color: red; */
+      width: 17vw;
+      height: 6vh;
+      border-radius: 6px;
+      margin-top: 10px;
+      padding: 10px 30px;
+    }
+
+    .newplaylist .text2 h5:hover {
+      background-color: #5F5656;
+    }
+
+    .newplaylist .text2 h5 a {
+      font-size: 20px;
+      font-weight: 500;
+
+      margin-left: 5px;
+      text-decoration: none;
+    }
+
+    .newplaylist .text2 h5 i {
+      font-weight: 500;
+      font-size: 17px;
+      color: #23C05B;
+
+    }
 
 
     .nav-right {
@@ -222,7 +288,7 @@
       font-size: 25px;
       border-radius: 50px;
       padding: 7px 7px;
-      background-color: black;
+      background-color: rgb(60, 58, 58);
     }
 
     .rr {
@@ -339,7 +405,15 @@
     .text a {
       text-decoration: none;
       font-size: 1.5vw;
+
     }
+
+    .bod{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
 
     .right audio {
       position: fixed;
@@ -395,6 +469,55 @@
       padding: 10px 10px;
       border-radius: 4px;
     }
+
+    .dropbtn {
+      font-size: 12px;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+    }
+
+    .dropbtn:hover {
+      color: #1ED760;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      max-height: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      background-color: #121212;
+      overflow-y: auto;
+    }
+
+    .dropdown-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #333333;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
   </style>
 </head>
 
@@ -427,38 +550,35 @@
         </div>
 
 
-        <a class="playlist">
+        <a id="add">
           <div class="playlist">
-            <i id="add" class="ri-play-list-line"></i>
+            <i class="ri-play-list-line"></i>
 
-            <p>Playlist</p>
+            <p class="left-text">Playlist</p>
 
           </div>
-          <i id="add" class="ri-add-line"></i>
 
         </a>
 
         <div class="newplaylist">
           <form action="/createplaylist" id="playlistform" method="post">
             <input type="text" name="playlistName" placeholder="Add Playlist">
+            <i id="submit-form" class="ri-add-line"></i>
+
           </form>
-          <% currentUser.playlist.forEach(function(playlist){  %>
+          <% currentUser.playlist.forEach(function(playlist){ %>
 
             <div class="text2">
               <h5>
+                <i class="ri-music-2-line"></i>
                 <a href="PlayList/<%= playlist._id %>">
                   <%= playlist.name %>
                 </a>
               </h5>
-              <% if(currentUser.username === playlist.name){ %>
 
-                <% }else { %>
-                  
-                  <a href="/deleteplaylist/<%= playlist._id %>"><i class="ri-delete-bin-6-fill"></i></a>
-                 <%  } %>
             </div>
-            
-         <% }) %>
+
+            <% }) %>
         </div>
 
 
@@ -480,6 +600,7 @@
           <div class="ll">
             <i class="ri-arrow-left-s-line"></i>
             <i class="ri-arrow-right-s-line"></i>
+            
           </div>
 
           <div class="rr">
@@ -487,7 +608,7 @@
             <h4>
               <%= currentUser.username %>
             </h4>
-            <img src="../images/default.png" alt="">
+            <img src="../images/green.png" alt="">
           </div>
         </div>
 
@@ -509,15 +630,28 @@
                   <%= song.artist %>
 
                 </p>
-                <!-- <p>
-                        <%= song.album %>
-                      </p> -->
 
-                <a class="like" href="/likeMusic/<%= song._id %>">
 
-                  <%= song.likes.indexOf(currentUser.id)===-1 ? "🤍" : "💚" %>
+                <div class="bod">
 
-                </a>
+                  <div class="dropdown">
+                    <button class="dropbtn">Add to playlist</button>
+                    <div class="dropdown-content">
+                      <% currentUser.playlist.forEach(function(playlist){ %>
+  
+                        <a href="/AddPlayList/<%= playlist._id %>/<%= song._id %>">
+                          <%= playlist.name %>
+                        </a>
+                        <% }) %>
+                    </div>
+                  </div>
+                  <a class="like" href="/likeMusic/<%= song._id %>">
+  
+                    <%= song.likes.indexOf(currentUser.id)===-1 ? "🤍" : "💚" %>
+  
+                  </a>
+                </div>
+
               </div>
 
               <div class="playButton">
@@ -547,6 +681,21 @@
 
 
 
+    var flag1 = true
+    document.querySelector("#add").addEventListener("click", function () {
+      if (flag1) {
+        document.querySelector(".newplaylist").style.opacity = 1;
+        flag1 = false
+      }
+      else {
+        document.querySelector(".newplaylist").style.opacity = 0
+        flag1 = true
+      }
+    })
+
+    document.querySelector("#submit-form").addEventListener("click", function () {
+      document.querySelector("#playlistform").submit();
+    })
 
   </script>
 

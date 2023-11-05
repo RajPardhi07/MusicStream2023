@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema({
     username:String,
     email:String,
     contact:String,
+    
     playlist:[
         {
             type:mongoose.Schema.Types.ObjectId,
@@ -21,7 +22,7 @@ const userSchema = mongoose.Schema({
     ],
     profileImage:{
         type:String,
-        default:'/images/default.png'
+        default:'/images/green.png'
     },
 
     isAdmin:{

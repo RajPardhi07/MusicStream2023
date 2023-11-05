@@ -137,10 +137,9 @@
       width: 75%;
       height: 81%;
       border-radius: 9px;
-      background: linear-gradient(to bottom, #5840a9, #1A152A);
+      background: linear-gradient(to bottom, #4fa7da,#122f42c8);
 
     }
-
     .pro {
       display: flex;
       align-items: center;
@@ -156,6 +155,7 @@
       width: 22vh;
       font-size: 6vw;
       height: 22vh;
+      border-radius: 8px;
       color: white;
       margin-top: 1vw;
       margin-left: 2vw;
@@ -177,6 +177,7 @@
       margin-left: 1.5vw;
 
     }
+
 
 
     .nav-bottom {
@@ -248,6 +249,8 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      color: lightgray;
+      margin-top: 7px;
     }
 
     .song img {
@@ -280,7 +283,7 @@
       width: 100%;
       border-radius: 10px;
       overflow: hidden;
-      height: 20vh;
+      height: 11vh;
       background-color: #121212;
       margin-top: 10px;
 
@@ -340,23 +343,133 @@
     }
 
     .card2 img {
-      height: 80px;
+      height: 70px;
       object-fit: cover;
 
     }
 
-    .text2 h5,
-    .text2 p {
-      font-size: 16px;
+    .left .playlist {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      padding-top: -4px;
+      width: 11vw;
+      height: 5.5vh;
+      border-radius: 50px;
+      /* background-color: #2A2A2A; */
+      background-color:#2A2A2A;
+
+      padding-left: 2vw;
+
+      
+    }
+
+    .playlist p {
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
       color: white;
-      margin-left: 1vw;
+    }
+
+    .playlist i {
+      font-size: 19px;
+      cursor: pointer;
+      color: white;
 
     }
 
-    .nav-bottom audio::-webkit-media-controls-panel {
-      background-color: #1FDF64;
-      color: #a0276e;
+
+
+    .newplaylist {
+      cursor: pointer;
+      width: 100%;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      /* justify-content: space-between; */
+      padding: 16px;
+      margin-top: 0.7vw;
+      overflow-y: auto;
+      /* border: 1px solid white; */
+      border-radius: 10px;
+
+
+      /* opacity: 0; */
+      background-color:rgb(46, 45, 45);
     }
+
+    .newplaylist input {
+      width: 130%;
+      height: 6vh;
+      border-radius: 50px;
+      padding-left: 10px;
+      background-color: transparent;
+      border: 1px solid white;
+
+
+    }
+
+    #submit-form {
+      position: absolute;
+      left: 81%;
+      font-size: 18px;
+      padding: 10px 10px;
+      /* background-color: #1FDF64; */
+      border-radius: 50px;
+      border: 1px solid white;
+
+      top: 46%;
+    }
+
+    #submit-form:hover {
+      background: linear-gradient(120deg, #5A2FEF, #d3deea);
+
+    }
+
+    .newplaylist::-webkit-scrollbar {
+      display: none;
+    }
+
+    .newplaylist .text2 {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .newplaylist .text2 h5 {
+      padding-right: 8px;
+      /* background-color: red; */
+      width: 14vw;
+      height: 6vh;
+      border-radius: 6px;
+      margin-top: 10px;
+      padding: 10px 30px;
+    }
+
+    .newplaylist .text2 h5:hover {
+      background-color: #5F5656;
+    }
+
+    .newplaylist .text2 h5 a {
+      font-size: 20px;
+      font-weight: 500;
+
+      margin-left: 5px;
+      text-decoration: none;
+    }
+
+    .newplaylist .text2 h5 i {
+      font-weight: 500;
+      font-size: 17px;
+      color: #23C05B;
+
+    }
+
+
+
+    
   </style>
 </head>
 
@@ -395,6 +508,26 @@
 
         </a>
       </div>
+<!-- 
+      <a class="add">
+        <div class="playlist">
+          <i class="ri-play-list-line"></i>
+          <p class="left-text">PlayList</p>
+        </div>
+      </a>
+
+      <div class="newplaylist">
+        <form action="/createplaylist" id="playlistform" method="post">
+          <input name="playlistName" type="text" placeholder="Add PlayList">
+        </form>
+        <div class="text2">
+          <h5>
+            <a href="/PlayList/<%= foundPlayList._id %>">
+              <%= foundPlayList.name %>
+            </a>
+          </h5>
+        </div>
+      </div> -->
 
 
 
@@ -402,31 +535,54 @@
 
     <div class="right">
 
+
       <div class="pro">
-        <i class="ri-search-line"></i>
+        <i class="ri-music-2-line"></i>
         <div class="pro-data">
           <h5>Playlist</h5>
-          <h1>Search Songs</h1>
+          <h1>This Is <%= foundPlayList.name %></h1>
+          
         </div>
 
       </div>
 
 
+      
+
+
       <div class="musics">
 
-        
+        <% foundPlayList.songs.forEach(function(song){ %>
+          <div class="song">
+            <div class="image">
+              <img src="/poster/<%= song.poster %>" alt="">
+              <div class="playButton" onclick="songCardClick('<%= song.fileName %>')">
+                <i class="ri-play-circle-fill"></i>
+              </div>
+            </div>
+            <div class="text">
+              <h5>
+                <%= song.title %>
+              </h5>
+              <p>
+                <%= song.artist %>
+              </p>
+              <!-- <p>
+                <%= song.album %>
+              </p> -->
+
+
+            </div>
+          </div>
+          <% }) %>
+
       </div>
     </div>
-    
+
     <div class="nav-bottom">
+
       
-      <img src="posterName" alt="">
-      
-      <div class="nav-c">
-        <h4 class="songName"></h4>
-        <h5 class="artistName"></h5>
-      </div>
-      
+
       <audio src="" controls></audio>
 
 
@@ -446,13 +602,11 @@
 
 async function searchSong() {
       const result = await axios.post('/search', {
-        search: document.querySelector('input').value
+        search: document.querySelector('.left .search input').value
       })
-
       let clutter = ''
-
       result.data.songs.forEach(song => {
-        clutter += ` <div class="song" onclick="songCardClicked('${song.fileName}')">
+        clutter += ` <div class="song" onclick="songCardClick('${song.fileName}')">
           <img src="/poster/${song.poster}" alt="">
           <div class="text">
             <h5>${song.title}</h5>
@@ -464,18 +618,32 @@ async function searchSong() {
           </div>
         </div>`
       });
-
       document.querySelector('.musics').innerHTML = clutter
-
-
-
     }
 
-    function songCardClicked(filename) {
-      document.querySelector('audio').setAttribute('src', `/stream/${filename}`)
+
+    async function songCardClick(fileName) {
+      
+      document.querySelector('audio').setAttribute('src', `/stream/${fileName}`)
       document.querySelector('audio').play()
     }
-    
+
+    var flag1 = true
+    document.querySelector("#add").addEventListener("click", function () {
+      if (flag1) {
+        document.querySelector(".newplaylist").style.opacity = 1;
+        flag1 = false
+      }
+      else {
+        document.querySelector(".newplaylist").style.opacity = 0
+        flag1 = true
+      }
+    })
+
+    document.querySelector("#submit-form").addEventListener("click", function () {
+      document.querySelector("#playlistform").submit();
+    })
+
   </script>
 
 </body>
