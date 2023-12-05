@@ -14,11 +14,16 @@ const mongoose = require('mongoose');
 // const { CLIENT_RENEG_LIMIT } = require('tls');
 
 // connect nodejs to mongodb
-mongoose.connect('mongodb://0.0.0.0/spt-n15').then(() => {
+mongoose.connect('mongodb+srv://rajpardhi:raj12345@spotify-clone.hzixut2.mongodb.net/spotify?retryWrites=true&w=majority').then(() => {
   console.log("connected to database")
 }).catch(err => {
   console.log(err)
 })
+// mongoose.connect('mongodb://0.0.0.0/spt-n15').then(() => {
+//   console.log("connected to database")
+// }).catch(err => {
+//   console.log(err)
+// })
 router.get('/poster/:posterName', (req, res, next) => {
   gfsBucketPoster.openDownloadStreamByName(req.params.posterName).pipe(res)
 })
