@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 // const { CLIENT_RENEG_LIMIT } = require('tls');
 
 // connect nodejs to mongodb
-mongoose.connect('mongodb+srv://rajpardhi962000:88888@music23.qmcp0tz.mongodb.net/music23?retryWrites=true&w=majority').then(() => {
+mongoose.connect('mongodb+srv://rajpardhi:raj12345@spotify-clone.hzixut2.mongodb.net/spotify?retryWrites=true&w=majority').then(() => {
   console.log("connected to database")
 }).catch(err => {
   console.log(err)
@@ -162,7 +162,6 @@ router.post('/uploadMusic', isloggedIn, isAdmin, upload.array('song'), async (re
       poster: randomName + 'poster',
       fileName: randomName
     })
-
   }))
   res.send('song uploaded')
 })
