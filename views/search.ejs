@@ -136,10 +136,13 @@
     .right {
       width: 75%;
       height: 81%;
+      overflow-x: hidden;
+      overflow-y: auto;
       border-radius: 9px;
       background: linear-gradient(to bottom, #5840a9, #1A152A);
 
     }
+    
 
     .pro {
       display: flex;
@@ -358,6 +361,116 @@
       background-color: #1FDF64;
       color: #a0276e;
     }
+
+
+    @media (max-width:600px) {
+      #main{
+        flex-direction: column;
+        min-height: 500vh;
+      }
+
+      .left{
+        width: 100vw;
+        height: 35vh;
+
+        left: 0;
+        
+        /* background-color: red; */
+      }
+
+      .over-top{
+        background-color: rgb(53, 52, 52);
+        height: 10vh;
+        display: flex;
+      }
+
+      .over-top a{
+        background-color:rgb(69, 68, 68);
+        /* position: absolute; */
+        width: 15%;
+        left: 18%;
+        display: flex;
+        height: 50px;
+      
+        font-size: 4vw;
+
+
+      }
+      .over-top a i{
+        font-size: 8vw;
+      }
+
+      .over-top a p{
+        display: none;
+      }
+
+      .over-top button{
+        position: absolute;
+          width: 13%;
+          height:50px;
+      }
+
+
+      .over-top button i{
+        font-size: 8vw;
+      }
+      .over-top button p{
+        display: none;
+      }
+
+      .over-bottom{
+        width: 19%;
+        height:9vh;
+        position: absolute;
+        top: 5px;
+        background-color: transparent;
+        left: 77%;
+      }
+
+      .over-bottom i{
+        position: absolute;
+        top: -1px;
+        font-size: 7vw;
+      }
+      .over-bottom a p{
+        display: none;
+      }
+
+      .left input{
+        width: 80vw;
+        height: 8vh;
+        margin-top: 4vw;
+      }
+
+      .bot button{
+        width: 12vw;
+        height: 7vh;
+        margin-left: 2vw;
+      }
+
+      .right{
+        width: 100%;
+        height: 100%;
+        top: 30%;
+        /* position: absolute; */
+      }
+
+      .pro h1{
+        font-size: 10vw;
+      }
+      .pro h5{
+        font-size: 25px;
+      }
+      .nav-bottom audio{
+        /* bottom: 1px; */
+        width: 85vw;
+        left:5%;
+      }
+      
+    }
+
+ 
+
   </style>
 </head>
 

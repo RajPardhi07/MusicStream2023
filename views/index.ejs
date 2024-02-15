@@ -328,7 +328,7 @@
 
     }
 
-    .musics {
+    .musics {   
       display: grid;
       margin-top: 5vw;
 
@@ -518,6 +518,159 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
+    @media (max-width:600px) {
+
+      .center{
+        flex-direction: column;
+        position: relative;
+
+      }
+      
+
+
+
+      .left{
+        width: 100vw;
+        height: 35vh;
+
+        left: 0;
+        
+        /* background-color: red; */
+      }
+
+      .over-top{
+        background-color: rgb(53, 52, 52);
+        height: 10vh;
+      }
+
+      .over-top a{
+        background-color:rgb(69, 68, 68);
+        position: absolute;
+        width: 15%;
+        left: 18%;
+        height: 50px;
+      
+        font-size: 4vw;
+
+
+      }
+      .over-top a i{
+        font-size: 8vw;
+      }
+
+      .over-top a p{
+        display: none;
+      }
+
+      .over-top button{
+        position: absolute;
+          width: 15%;
+          height:50px;
+          /* left: 50%; */
+          background-color:rgb(69, 68, 68);
+      }
+
+      .over-top button i{
+        font-size: 8vw;
+      }
+      .over-top button p{
+        display: none;
+      }
+
+      .over-bottom{
+        width: 19%;
+        height:9vh;
+        position: absolute;
+        top: -1%;
+        left: 37%;
+      }
+
+      .over-bottom i{
+        position: absolute;
+        top: -1px;
+        font-size: 7vw;
+      }
+      .over-bottom a p{
+        display: none;
+      }
+
+      .over-logout{
+        position:absolute;
+        top: -3vw;
+        height: 20px;
+        left: 80%;
+        width: 19%;
+
+      }
+      .over-logout p{
+        display: none;
+      }
+      .over-logout i{
+
+        font-size: 7vw;
+      }
+
+      .text2{
+        width: 100%;
+
+        
+      }
+
+      .text2 h5{
+        margin-top: 5px;
+        width: 10vw;
+      }
+
+      .text2 a{
+        font-size: 15px;
+      }
+      .text2 h5 i{
+        font-size: 14px;
+      }
+
+      .newplaylist{
+        background-color: lightseagreen;
+        /* position: absolute; */
+      /* opacity: 1; */
+        /* top: 60%; */
+        z-index: 99999;
+        width: 100%;
+        height: 50%;
+      }
+
+      .right{
+        /* display: none; */
+        width: 100%;
+        position: absolute;
+        right: 0px;
+        margin-top:60vw;
+        
+      }
+      .center{
+        position: relative;
+      }
+
+      
+
+      .nav-right{
+        width: 100%;
+        position: absolute;
+      }
+
+      .right audio {
+        width: 94vw;
+        left: 48%;
+      }
+
+      
+      
+    }
+
+
+
+
+
   </style>
 </head>
 

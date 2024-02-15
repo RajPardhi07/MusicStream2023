@@ -139,7 +139,7 @@
             color: lightgrey;
         }
 
-        .song a{
+        .song a {
             font-size: 25px;
         }
 
@@ -281,6 +281,130 @@
             background-color: #2A2A2A;
             margin-top: 15px;
         }
+
+        @media (max-width:600px) {
+            #main {
+                flex-direction: column;
+                height: 100%;
+            }
+
+            .left {
+                width: 100vw;
+                height: 35vh;
+
+                left: 0;
+
+                /* background-color: red; */
+            }
+
+            .over-top {
+                background-color: rgb(53, 52, 52);
+                height: 10vh;
+                display: flex;
+            }
+
+            .over-top a {
+                background-color: rgb(69, 68, 68);
+                /* position: absolute; */
+                width: 15%;
+                left: 18%;
+                display: flex;
+                height: 50px;
+
+                font-size: 4vw;
+
+
+            }
+
+            .over-top a i {
+                font-size: 8vw;
+            }
+
+            .over-top a p {
+                display: none;
+            }
+
+            .over-top button {
+                position: absolute;
+                width: 13%;
+                height: 50px;
+            }
+
+
+            .over-top button i {
+                font-size: 8vw;
+            }
+
+            .over-top button p {
+                display: none;
+            }
+
+            .over-bottom {
+                width: 19%;
+                height: 9vh;
+                position: absolute;
+                top: 5px;
+                background-color: transparent;
+                left: 77%;
+            }
+
+            .over-bottom i {
+                position: absolute;
+                top: -1px;
+                font-size: 7vw;
+            }
+
+            .over-bottom a p {
+                display: none;
+            }
+
+            .left input {
+                width: 80vw;
+                height: 8vh;
+                margin-top: 4vw;
+            }
+
+            .bot button {
+                width: 12vw;
+                height: 7vh;
+                margin-left: 2vw;
+            }
+
+            .right {
+                width: 100%;
+                height: 100%;
+                top: 30%;
+                /* position: absolute; */
+            }
+
+            .pro h1 {
+                font-size: 10vw;
+            }
+
+            .search i {
+                font-size: 5vw;
+                padding: 11px 11px;
+            }
+
+            .pro h5 {
+                font-size: 25px;
+            }
+
+            .port1{
+                position: absolute;
+                bottom:77%;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .nav-bottom audio {
+                /* bottom: 1px; */
+                width: 85vw;
+                left: 5%;
+            }
+
+        }
     </style>
 </head>
 
@@ -356,12 +480,14 @@
         </div>
 
         <div class="nav-bottom">
+            <div class="port1">
 
-            <img class="posterName" src="" alt="">
-            <div class="nav-c">
+                <img class="posterName" src="" alt="">
+                <div class="nav-c">
 
-                <h4 class="songName"></h4>
-                <h5 class="artistName"></h5>
+                    <h4 class="songName"></h4>
+                    <h5 class="artistName"></h5>
+                </div>
             </div>
             <audio src="" controls></audio>
         </div>

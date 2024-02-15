@@ -1,3 +1,5 @@
+require("dotenv").config({path: "./.env"});
+
 var express = require('express');
 const passport = require('passport');
 var router = express.Router();
@@ -10,11 +12,11 @@ var multer = require('multer')
 var id3 = require('node-id3')
 var crypto = require('crypto')
 const { Readable } = require('stream')
+var dotenv = require('dotenv')
 const mongoose = require('mongoose');
-// const { CLIENT_RENEG_LIMIT } = require('tls');
 
 // connect nodejs to mongodb
-mongoose.connect('mongodb+srv://rajpardhi:raj12345@spotify-clone.hzixut2.mongodb.net/spotify?retryWrites=true&w=majority').then(() => {
+mongoose.connect(process.env.MONGO_URL).then(() => {
   console.log("connected to database")
 }).catch(err => {
   console.log(err)
